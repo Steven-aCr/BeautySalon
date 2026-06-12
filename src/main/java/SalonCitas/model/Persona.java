@@ -25,11 +25,11 @@ public class Persona {
 
     public  int getIdPersona() { return IdPersona; }
 
-    public void setIdPersona(int idPersona) { idPersona = idPersona; }
+    public void setIdPersona(int idPersona) { IdPersona = idPersona; }
 
     public String getNombre() { return Nombre; }
 
-    public void setNombre(String nombre) { nombre = nombre;}
+    public void setNombre(String nombre)  { Nombre = nombre; }
 
     public String getApellido() { return Apellido; }
 
