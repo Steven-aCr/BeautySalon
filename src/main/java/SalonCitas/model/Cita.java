@@ -15,7 +15,7 @@ public class Cita {
 
     //Campos extra para mostrar en la tabla (JOIN)
     private String  nombreCliente;
-    private String  nombreEmpeado;
+    private String  nombreEmpleado;
     private String  nombreEstado;
 
     public Cita() {    }
@@ -86,5 +86,12 @@ public class Cita {
         this.observaciones = observaciones;
     }
 
+    public String getNombreCliente()                   { return nombreCliente; }
+    public void   setNombreCliente(String v)           { this.nombreCliente  = v; }
 
+    public String getNombreEmpleado()                  { return nombreEmpleado; }
+    public void   setNombreEmpleado(String v)          { this.nombreEmpleado = v; }
+
+    public String getNombreEstado()                    { return nombreEstado; }
+    public void   setNombreEstado(String v)            { this.nombreEstado   = v; }
 }
