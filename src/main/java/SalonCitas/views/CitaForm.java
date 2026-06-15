@@ -6,6 +6,7 @@ import SalonCitas.dao.EstadoDAO;
 import SalonCitas.model.Cita;
 import SalonCitas.model.Estado;
 import SalonCitas.model.Persona;
+import java.awt.Dimension;
 
 import javax.swing.*;
 import java.sql.Date;
@@ -28,6 +29,9 @@ public class CitaForm {
     public CitaForm() {
         configurarSpinners();
         cargarCombos();
+
+        panel1.setPreferredSize(new Dimension(500, 420));
+        panel1.setBorder(BorderFactory.createEmptyBorder(15, 20, 15, 20));
 
         LIMPIARButton.addActionListener(e -> limpiarFormulario());
         GUARDARButton.addActionListener(e -> guardarCita());

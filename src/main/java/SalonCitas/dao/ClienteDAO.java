@@ -85,13 +85,13 @@ public class ClienteDAO {
                 throw  new SQLException("No se pudo obtener el IdPersona generado.");
             }
 
-            ps = con.prepareStatement("INSERT INTO Cliente (IdPersona, IdEstado, Email, Password)"+
+            ps = con.prepareStatement("INSERT INTO Cliente (IdPersona, IdEstado, Email, Password) " +
                     "VALUES (?, ?, ?, ?)");
             ps.setInt(1, idPersonaGenerado);
-            ps.setInt(2, cliente.getIdCliente());
-            ps.setString(3, cliente.getPassword());
+            ps.setInt(2, cliente.getIdEstado());   // ← getIdEstado()
+            ps.setString(3, cliente.getEmail());   // ← email
+            ps.setString(4, cliente.getPassword()); // ← password
             ps.executeUpdate();
-
             con.commit();
             return true;
 

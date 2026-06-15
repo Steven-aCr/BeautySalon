@@ -17,6 +17,32 @@
             <scope>test</scope>
         </dependency>
 
+
+            <!-- Source: https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-engine -->
+            <dependency>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter-engine</artifactId>
+                <version>6.1.0</version>
+                <scope>test</scope>
+            </dependency>
+
+            <!-- Source: https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc -->
+            <dependency>
+                <groupId>com.microsoft.sqlserver</groupId>
+                <artifactId>mssql-jdbc</artifactId>
+                <version>13.4.0.jre11</version>
+                <scope>compile</scope>
+            </dependency>
+
+            <!-- FlatLaf - Look and Feel moderno -->
+            <dependency>
+                <groupId>com.formdev</groupId>
+                <artifactId>flatlaf</artifactId>
+                <version>3.4</version>
+            </dependency>
+
+
+
         <!-- Source: https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc -->
         <dependency>
             <groupId>com.microsoft.sqlserver</groupId>
@@ -30,6 +56,7 @@
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <argLine>--enable-native-access=ALL-UNNAMED</argLine>
     </properties>
 
 </project>
