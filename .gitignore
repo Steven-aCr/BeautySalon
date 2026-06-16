@@ -3,6 +3,16 @@
 ##
 ## Get latest from `dotnet new gitignore`
 
+# Maven
+target/
+
+# Java
+*.class
+
+# Maven Wrapper (conservar)
+!.mvn/wrapper/maven-wrapper.jar
+!.mvn/wrapper/maven-wrapper.properties
+
 # dotenv files
 .env
 
