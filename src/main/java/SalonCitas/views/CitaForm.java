@@ -52,6 +52,7 @@ public class CitaForm {
             ComboDAO comboDAO = new ComboDAO();
             EstadoDAO estadoDAO = new EstadoDAO();
 
+  //cambiar esto STV
             comboBox1.removeAllItems();
             for (Persona p : comboDAO.listarClientes()) comboBox1.addItem(p);
 
