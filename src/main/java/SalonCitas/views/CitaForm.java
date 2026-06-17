@@ -6,6 +6,8 @@ import SalonCitas.dao.EstadoDAO;
 import SalonCitas.model.Cita;
 import SalonCitas.model.Estado;
 import SalonCitas.model.Persona;
+import SalonCitas.model.Sesion;
+
 import java.awt.Dimension;
 
 import javax.swing.*;
@@ -37,6 +39,24 @@ public class CitaForm {
         GUARDARButton.addActionListener(e -> guardarCita());
     }
 
+    private void preseleccionarClienteLogueado()
+    {
+        if (Sesion.getClienteActual()==null) return;
+
+        int idPersonaCliente = Sesion.getClienteActual().getIdPersona();
+
+        for (int i = 0; i < comboBox1.getItemCount(); i++)
+        {
+            Persona p = comboBox1.getItemAt(i);
+            if (p.getIdPersona()== idPersonaCliente)
+            {
+                comboBox1.setSelectedIndex(i);
+                break;
+            }
+        }
+        comboBox1.setEditable(false);
+    }
+
     /** Configura los spinners de Fecha y Hora con sus respectivos formatos. */
     private void configurarSpinners() {
         spinner1.setModel(new SpinnerDateModel());
@@ -52,9 +72,19 @@ public class CitaForm {
             ComboDAO comboDAO = new ComboDAO();
             EstadoDAO estadoDAO = new EstadoDAO();
 
+  //cambiar esto STV
             comboBox1.removeAllItems();
-            for (Persona p : comboDAO.listarClientes()) comboBox1.addItem(p);
-
+            if(Sesion.getClienteActual()!= null){
+                int idPersonaCliente = Sesion.getClienteActual().getIdCliente();
+                for (Persona p : comboDAO.listarClientes())
+                {
+                    if (p.getIdPersona()==idPersonaCliente)
+                    {
+                        comboBox1.addItem(p);
+                        break;
+                    }
+                }
+            }
             comboBox2.removeAllItems();
             for (Persona p : comboDAO.listarEmpleados()) comboBox2.addItem(p);
 
@@ -122,7 +152,7 @@ public class CitaForm {
     }
 
     /** Retorna el panel raiz para insertarlo en la ventana principal. */
-    public JPanel getPanel() {
+    public JPanel getPanel1() {
         return panel1;
     }
 }

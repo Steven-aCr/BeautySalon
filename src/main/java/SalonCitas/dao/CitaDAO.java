@@ -87,7 +87,7 @@ public class CitaDAO {
             } else {
                 throw new SQLException("Error al crear un nuevo registro de Cita. ID no obtenido.");
             }
-            ps.close();
+
 
         } catch (SQLException ex)
         {

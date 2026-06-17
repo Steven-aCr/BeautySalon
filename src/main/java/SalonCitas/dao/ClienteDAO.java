@@ -106,6 +106,45 @@ public class ClienteDAO {
             }
     }
 
+    // Busca un cliente por email y password para login. Incluye nombre completo.
+    public Cliente login(String email, String password) throws SQLException
+    {
+        Cliente cliente = null;
+        try
+        {
+            ps = conn.connect().prepareStatement(
+                    "SELECT c.IdCliente, c.IdPersona, c.IdEstado, c.Email, c.Password, " +
+                            "p.Nombre, p.Apellido " +
+                            "FROM Cliente c " +
+                            "JOIN Persona p ON c.IdPersona = p.IdPersona " +
+                            "WHERE c.Email = ? AND c.Password = ?");
+            ps.setString(1, email);
+            ps.setString(2, password);
+            rs = ps.executeQuery();
+
+            if (rs.next())
+            {
+                cliente = new Cliente(
+                        rs.getInt("IdCliente"),
+                        rs.getInt("IdPersona"),
+                        rs.getInt("IdEstado"),
+                        rs.getString("Email"),
+                        rs.getString("Password"));
+                cliente.setNombreCompleto(rs.getString("Nombre") + " " + rs.getString("Apellido"));
+            }
+            ps.close();
+            rs.close();
+        } catch (SQLException ex)
+        {
+            throw new SQLException(ex.getMessage(), ex);
+        } finally {
+            ps = null;
+            rs = null;
+            conn.disconnect();
+        }
+        return cliente;
+    }
+
     // Metodo para buscar registros en la tabla "Cliente".
     public ArrayList<Cliente> search(String nombre) throws SQLException
     {
