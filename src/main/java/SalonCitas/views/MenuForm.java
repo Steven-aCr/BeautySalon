@@ -11,7 +11,6 @@ public class MenuForm {
     private JLabel lblBienvenida;
     private JButton btnCrearCita;
     private JButton btnVerCitas;
-    private JButton cerrarSesiónButton;
     private JButton btnCerrarSesion;
 
     public MenuForm() {
@@ -31,7 +30,7 @@ public class MenuForm {
         SwingUtilities.getWindowAncestor(panel1).dispose();
         JFrame frame = new JFrame("Salon de citas - Agendar Cita");
         CitaForm citaForm = new CitaForm();
-        frame.setContentPane(citaForm.getPanel1());
+        frame.setContentPane(citaForm.getPanel());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setLocationRelativeTo(null);
